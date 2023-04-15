@@ -1,5 +1,5 @@
+import { FC } from "react";
 import { HStack, VStack, Text, Divider } from "@chakra-ui/react";
-import { FC } from "React";
 
 export const Header: FC = () => {
   return (
