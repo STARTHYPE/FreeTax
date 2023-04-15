@@ -37,7 +37,7 @@ export const PurchasesSubscribeModal: FC<UseModalProps> = ({
           <VStack spacing={6} px={32}>
             <HStack spacing={4} w={"full"}>
               <PurchasesItem title={"発生日"}>
-                <Input></Input>
+                <Input type="date" value={"2023-03-23"}></Input>
               </PurchasesItem>
 
               <PurchasesItem title={"決済"}>
