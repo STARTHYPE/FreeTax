@@ -1,5 +1,5 @@
 import {
-    Button,
+  HStack,
   Modal,
   ModalBody,
   ModalCloseButton,
@@ -7,8 +7,14 @@ import {
   ModalFooter,
   ModalHeader,
   ModalOverlay,
+  Button,
+  Select,
+  VStack,
+  Input,
+  Divider,
 } from "@chakra-ui/react";
 import { FC } from "react";
+import { PurchasesItem } from "./PurchasesItem";
 
 interface UseModalProps {
   isOpen: boolean;
@@ -20,12 +26,56 @@ export const PurchasesSubscribeModal: FC<UseModalProps> = ({
   onClose,
 }) => {
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
+    <Modal isOpen={isOpen} onClose={onClose} size={"4xl"}>
       <ModalOverlay />
       <ModalContent>
-        <ModalHeader>仕入登録</ModalHeader>
+        <ModalHeader>
+          仕入登録<Button size={"sm"}>支出登録</Button>
+        </ModalHeader>
         <ModalCloseButton />
-        <ModalBody>hello</ModalBody>
+        <ModalBody>
+          <VStack spacing={6} px={32}>
+            <HStack spacing={4} w={"full"}>
+              <PurchasesItem title={"発生日"}>
+                <Input></Input>
+              </PurchasesItem>
+
+              <PurchasesItem title={"決済"}>
+                <Select placeholder="完了">
+                  <option value="option1">未決済</option>
+                </Select>
+              </PurchasesItem>
+
+              <PurchasesItem title={"取引先"}>
+                <Select placeholder="国税庁">
+                  <option value="option1">未決済</option>
+                </Select>
+              </PurchasesItem>
+            </HStack>
+
+            <HStack spacing={4} w={"full"}>
+              <PurchasesItem title={"勘定科目"}>
+                <Select placeholder="売上">
+                  <option value="option1">未決済</option>
+                </Select>
+              </PurchasesItem>
+
+              <PurchasesItem title={"品目"}>
+                <Input></Input>
+              </PurchasesItem>
+
+              <PurchasesItem title={"金額"}>
+                <Input></Input>
+              </PurchasesItem>
+            </HStack>
+          </VStack>
+        </ModalBody>
+        <ModalFooter>
+          <VStack w={"full"}>
+            <Divider />
+            <Button>収入登録</Button>
+          </VStack>
+        </ModalFooter>
       </ModalContent>
     </Modal>
   );
